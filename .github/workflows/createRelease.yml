@@ -38,5 +38,5 @@ jobs:
           release_name: Release ${{ steps.get_version.outputs.VERSION }}
           body: |
             ${{ steps.get_commit_summary.outputs.COMMIT_SUMMARY }}
-          draft: false
+          draft: true
           prerelease: false
