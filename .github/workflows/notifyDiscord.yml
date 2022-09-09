@@ -1,0 +1,18 @@
+on:
+  release:
+    types:
+      - published
+      - prereleased
+
+name: Notify Discord about latest release
+
+jobs:
+  build:
+    name: Notify Discord
+    runs-on: ubuntu-latest
+    steps:
+      - name: Discord Message Notify
+        uses: fateyan/action-discord-notifier@v1
+        with:
+          message-title: New Version was released.
+          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
