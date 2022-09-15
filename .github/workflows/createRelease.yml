@@ -40,3 +40,13 @@ jobs:
             ${{ steps.get_commit_summary.outputs.COMMIT_SUMMARY }}
           draft: true
           prerelease: false
+
+      - name: Notify Discord
+        id: notify_discord
+        uses: sarisia/actions-status-discord@v1.10.0
+        with:
+          nodetail: true
+          title: "New version is ready to release!"
+          description: |
+            Version `${{ GITHUB_REF }}`
+            Click [here](https://github.com/Keisuke-Magara/githubaction_test/releases/tag/${{ GITHUB_REF }}) to download!
