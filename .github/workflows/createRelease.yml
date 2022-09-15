@@ -45,6 +45,7 @@ jobs:
         id: notify_discord
         uses: sarisia/actions-status-discord@v1.10.0
         with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
           nodetail: true
           title: "New version is ready to release!"
           description: |
