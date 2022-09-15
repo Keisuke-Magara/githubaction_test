@@ -12,7 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Discord Message Notify
-        uses: fateyan/action-discord-notifier@v1
+        uses: sarisia/actions-status-discord@v1.10.0
         with:
-          message-title: New Version was released.
           webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          title: "Notify"
+          description: "Can you show me?"
+          color: 0x00ff00
+          username: GitHub Actions
