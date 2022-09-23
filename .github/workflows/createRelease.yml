@@ -50,4 +50,4 @@ jobs:
           title: "New version is ready to release!"
           description: |
             Version `${{ github.ref_name }}`
-            Click [here](${{ 'https://github.com/Keisuke-Magara/githubaction_test/releases/tag/' }} ${ github.ref_name }) to download!
+            Click [here](${{ 'https://github.com/Keisuke-Magara/githubaction_test/releases/tag/' }} ${{ github.ref_name }}) to download!
