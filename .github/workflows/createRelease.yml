@@ -49,5 +49,5 @@ jobs:
           nodetail: true
           title: "New version is ready to release!"
           description: |
-            Version `${ GITHUB_REF }`
-            Click [here](https://github.com/Keisuke-Magara/githubaction_test/releases/tag/${ GITHUB_REF }) to download!
+            Version `${{ github.ref_name }}`
+            Click [here](${{ 'https://github.com/Keisuke-Magara/githubaction_test/releases/tag/' }} ${ github.ref_name }) to download!
