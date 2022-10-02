@@ -17,4 +17,4 @@ jobs:
       - name: Show Python version
         run: python -V
       - name: ls command
-        run: ls
+        run: ls -l
