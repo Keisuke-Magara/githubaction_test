@@ -11,9 +11,9 @@ jobs:
       - uses: actions/checkout@v3
       - name: Setup Python
         uses: actions/setup-python@v2
-          with:
-            python-version: '3.10'
-            architecture: 'x64'
+        with:
+          python-version: '3.10'
+          architecture: 'x64'
       - name: Show Python version
         run: python -V
       - name: ls command
