@@ -1,7 +1,9 @@
+import os
+
+
 def helloworld():
-    with open(file='../../pubspec.yaml') as f:
-        for line in f:
-            print(line)
+    files = os.listdir(path='../../.idea')
+    print(files)
 
 if __name__ == '__main__':
     helloworld()
