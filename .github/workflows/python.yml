@@ -18,3 +18,5 @@ jobs:
         run: python -V
       - name: ls command
         run: ls -a
+      - name: execute python script
+        run: cd .github/workflows/ && python test.py
