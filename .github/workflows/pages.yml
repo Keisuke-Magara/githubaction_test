@@ -62,7 +62,7 @@ jobs:
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           username: GitHub Actions
-          #color: 0x0000ff
+          nodetail: true
           title: "deploy to GitHub Pages"
           description: |
-            Click [here](https://w-sharp-tcu.github.io/sosaku/) to download!
+            Click [here](https://w-sharp-tcu.github.io/sosaku/) to access!
