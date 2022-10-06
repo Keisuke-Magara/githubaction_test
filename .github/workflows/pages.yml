@@ -1,5 +1,5 @@
 # Workflow for deploying flutter for web content to GitHub Pages
-name: 想咲
+name: Sosaku for Web
 
 on:
   # Only triggerd from Codemagic workflow
@@ -58,7 +58,7 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v1
       - name: Notify Discord
-      - uses: sarisia/actions-status-discord@v1
+        uses: sarisia/actions-status-discord@v1
         if: alyways()
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
