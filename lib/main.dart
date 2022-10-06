@@ -1,9 +1,13 @@
 //import 'package:flutter_web_plugins/flutter_web_plugins.dart'; // 追加
 import 'package:flutter/material.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
-void main() {
+late PackageInfo packageInfo;
+
+Future<void> main() async {
   //setUrlStrategy(PathUrlStrategy()); // 追加
   WidgetsFlutterBinding.ensureInitialized();
+  packageInfo = await PackageInfo.fromPlatform();
   runApp(const MyApp());
 }
 
@@ -14,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo v1.1',
+      title: 'Flutter Demo ${packageInfo.version}+${packageInfo.buildNumber}',
       theme: ThemeData(
         // This is the theme of your application.
         //
