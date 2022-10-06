@@ -7,6 +7,7 @@ late PackageInfo packageInfo;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  a();
   configureUrl();
   packageInfo = await PackageInfo.fromPlatform();
   runApp(const MyApp());
