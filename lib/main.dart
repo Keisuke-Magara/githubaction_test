@@ -1,6 +1,9 @@
+//import 'package:flutter_web_plugins/flutter_web_plugins.dart'; // 追加
 import 'package:flutter/material.dart';
 
 void main() {
+  //setUrlStrategy(PathUrlStrategy()); // 追加
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
