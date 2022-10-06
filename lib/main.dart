@@ -1,11 +1,11 @@
-//import 'package:flutter_web_plugins/flutter_web_plugins.dart'; // 追加
+import 'package:flutter_web_plugins/flutter_web_plugins.dart'; // 追加
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 late PackageInfo packageInfo;
 
 Future<void> main() async {
-  //setUrlStrategy(PathUrlStrategy()); // 追加
+  setUrlStrategy(PathUrlStrategy()); // 追加
   WidgetsFlutterBinding.ensureInitialized();
   packageInfo = await PackageInfo.fromPlatform();
   runApp(const MyApp());
