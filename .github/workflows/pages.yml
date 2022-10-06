@@ -44,9 +44,9 @@ jobs:
           cache: true
       - run: flutter --version
       - run: flutter pub get
-      - run: flutter gen-l10n
-      - run: flutter pub run icons_launcher:create
-      - run: flutter pub run flutter_native_splash:create
+      #- run: flutter gen-l10n
+      #- run: flutter pub run icons_launcher:create
+      #- run: flutter pub run flutter_native_splash:create
       - run: flutter build web --build-number=${github.event.client_payload.build_number}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
