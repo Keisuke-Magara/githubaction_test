@@ -36,10 +36,12 @@ jobs:
         run: |
           REPOSITORY=$(echo ${{ github.repository }} | sed -e "s#.*/##")
           echo ::set-output name=repository::$REPOSITORY
+      - name: echo build_number
+        run: echo ${github.event.client_payload.build_number}
       - name: Build Flutter for Web
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '2.10.5'
+          flutter-version: 'latest'
           channel: 'stable'
           cache: true
       - run: flutter --version
@@ -47,7 +49,7 @@ jobs:
       #- run: flutter gen-l10n
       #- run: flutter pub run icons_launcher:create
       #- run: flutter pub run flutter_native_splash:create
-      - run: flutter build web --build-number=${github.event.client_payload.build_number}
+      - run: flutter build web --release --build-number=${github.event.client_payload.build_number}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
