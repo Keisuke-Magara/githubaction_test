@@ -1,5 +1,5 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy Flutter for Web to GitHub Pages
+# Workflow for deploying flutter for web content to GitHub Pages
+name: 想咲
 
 on:
   # Only triggerd from Codemagic workflow
