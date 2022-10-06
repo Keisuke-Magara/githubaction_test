@@ -36,7 +36,7 @@ jobs:
           echo ::set-output name=repository::$REPOSITORY
       - name: echo build_number
         run: echo ${{ github.event.client_payload.build_number }}
-      - name: Build Flutter for Web
+      - name: Install Flutter for Web
         uses: subosito/flutter-action@v2
         with:
           # flutter-version: '3.3.4'
@@ -47,8 +47,7 @@ jobs:
       #- run: flutter gen-l10n
       #- run: flutter pub run icons_launcher:create
       #- run: flutter pub run flutter_native_splash:create
-      - run: flutter build web --release --base-href /${{ steps.version.outputs.repository }}/ --build-number=${{ github.event.client_payload.build_number }}
-      - run: ls ./build/web
+      - run: flutter build web --release --build-number=${{ github.event.client_payload.build_number }} --base-href /${{ steps.version.outputs.repository }}/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
@@ -63,7 +62,7 @@ jobs:
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           username: GitHub Actions
-          color: 0x0000ff
+          #color: 0x0000ff
           title: "deploy to GitHub Pages"
           description: |
             Click [here](https://w-sharp-tcu.github.io/sosaku/) to download!
