@@ -57,3 +57,13 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+      - name: Notify Discord
+      - uses: sarisia/actions-status-discord@v1
+        if: alyways()
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          username: GitHub Actions
+          color: 0x0000ff
+          title: "deploy to GitHub Pages"
+          description: |
+            Click [here](https://w-sharp-tcu.github.io/sosaku/) to download!
