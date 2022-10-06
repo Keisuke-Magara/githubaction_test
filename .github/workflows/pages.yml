@@ -63,6 +63,7 @@ jobs:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           username: GitHub Actions
           nodetail: true
+          prefix: true
           title: "deploy to GitHub Pages"
           description: |
             Click [here](https://w-sharp-tcu.github.io/sosaku/) to access!
