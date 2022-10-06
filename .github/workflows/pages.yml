@@ -50,6 +50,7 @@ jobs:
       #- run: flutter pub run icons_launcher:create
       #- run: flutter pub run flutter_native_splash:create
       - run: flutter build web --release --build-number=${{ github.event.client_payload.build_number }}
+      - run: ls ./build/web
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
