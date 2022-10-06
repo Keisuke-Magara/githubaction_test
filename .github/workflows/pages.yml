@@ -2,11 +2,9 @@
 name: Deploy Flutter for Web to GitHub Pages
 
 on:
-  # Triggerd from Codemagic workflow
+  # Only triggerd from Codemagic workflow
   repository_dispatch:
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -49,7 +47,7 @@ jobs:
       #- run: flutter gen-l10n
       #- run: flutter pub run icons_launcher:create
       #- run: flutter pub run flutter_native_splash:create
-      - run: flutter build web --release --build-number=${{ github.event.client_payload.build_number }}
+      - run: flutter build web --release --base-href /${{ steps.version.outputs.repository }}/ --build-number=${{ github.event.client_payload.build_number }}
       - run: ls ./build/web
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
