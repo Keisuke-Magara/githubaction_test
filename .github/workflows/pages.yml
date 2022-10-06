@@ -18,7 +18,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
@@ -34,8 +33,6 @@ jobs:
         run: |
           REPOSITORY=$(echo ${{ github.repository }} | sed -e "s#.*/##")
           echo ::set-output name=repository::$REPOSITORY
-      - name: echo build_number
-        run: echo ${{ github.event.client_payload.build_number }}
       - name: Install Flutter for Web
         uses: subosito/flutter-action@v2
         with:
@@ -47,15 +44,17 @@ jobs:
       #- run: flutter gen-l10n
       #- run: flutter pub run icons_launcher:create
       #- run: flutter pub run flutter_native_splash:create
+      # If you use default URL (do not use custom domain), --base-href option is required.
       - run: flutter build web --release --build-number=${{ github.event.client_payload.build_number }} --base-href /${{ steps.version.outputs.repository }}/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          # Upload entire repository
+          # Upload artifacts
           path: './build/web'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+      # Notify Discord Channel
       - name: Notify Discord
         uses: sarisia/actions-status-discord@v1
         if: always()
